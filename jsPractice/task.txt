@@ -1,0 +1,19 @@
+REST API - JSON
+
+GET / users - HTML Document render
+GET/api/users - list all user josn 
+
+GET /api/users/1 - get the user with id 1
+GET /api/users/1 - get the user with id 2
+|->dynamic Path Parameter-
+|->GET/api/user/:id
+:id -->Variablr | Dynamic
+
+POST/api/user - create new user
+
+PATCH /api/user/1 - edit the user with id 1
+
+DELETE/api /user/1 - delete the user with id 1
+
+
+https -> means containing the ssl certificate

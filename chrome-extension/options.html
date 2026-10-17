@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auto Scroll & Skip Videos - Options</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #333;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+      padding: 40px;
+    }
+
+    h1 {
+      color: #667eea;
+      margin-bottom: 10px;
+      font-size: 28px;
+    }
+
+    .subtitle {
+      color: #666;
+      margin-bottom: 30px;
+      font-size: 14px;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .section-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #667eea;
+    }
+
+    .control-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #333;
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    .label-description {
+      font-size: 12px;
+      color: #999;
+      margin-bottom: 4px;
+    }
+
+    input[type="number"],
+    input[type="text"],
+    select {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 14px;
+      font-family: inherit;
+      transition: border-color 0.3s ease;
+    }
+
+    input[type="number"]:focus,
+    input[type="text"]:focus,
+    select:focus {
+      outline: none;
+      border-color: #667eea;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+
+    .checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      border-radius: 6px;
+      background: #f5f5f5;
+      transition: background 0.3s ease;
+    }
+
+    .checkbox-item:hover {
+      background: #efefef;
+    }
+
+    input[type="checkbox"] {
+      margin-right: 10px;
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+    }
+
+    .checkbox-label {
+      flex: 1;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 10px;
+      margin-top: 30px;
+    }
+
+    button {
+      flex: 1;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .btn-save {
+      background: #667eea;
+      color: white;
+    }
+
+    .btn-save:hover {
+      background: #5568d3;
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    }
+
+    .btn-reset {
+      background: #f5f5f5;
+      color: #333;
+      border: 1px solid #ddd;
+    }
+
+    .btn-reset:hover {
+      background: #efefef;
+    }
+
+    button:active {
+      transform: translateY(1px);
+    }
+
+    .status-message {
+      margin-top: 20px;
+      padding: 12px 16px;
+      border-radius: 6px;
+      font-size: 13px;
+      text-align: center;
+      display: none;
+    }
+
+    .status-message.success {
+      display: block;
+      background: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+
+    .status-message.error {
+      display: block;
+      background: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+
+    .info-box {
+      background: #e3f2fd;
+      border-left: 4px solid #667eea;
+      padding: 12px 16px;
+      border-radius: 4px;
+      font-size: 13px;
+      color: #1e3a5f;
+      margin-top: 15px;
+    }
+
+    .range-value {
+      display: inline-block;
+      background: #667eea;
+      color: white;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      margin-left: 10px;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      .button-group {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>⚙️ Settings</h1>
+    <p class="subtitle">Configure your auto-scroll and video-skipping preferences</p>
+
+    <!-- Scrolling Settings -->
+    <div class="section">
+      <div class="section-title">📜 Scrolling Settings</div>
+
+      <div class="control-group">
+        <label for="scrollSpeed">
+          Scroll Speed (pixels per step)
+          <div class="label-description">Higher values = faster scrolling</div>
+        </label>
+        <div>
+          <input type="number" id="scrollSpeed" min="1" max="200" value="50">
+          <span class="range-value" id="scrollSpeedValue">50</span>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label for="scrollIntervalMs">
+          Scroll Interval (milliseconds)
+          <div class="label-description">Time between each scroll step (lower = smoother)</div>
+        </label>
+        <div>
+          <input type="number" id="scrollIntervalMs" min="10" max="500" value="50">
+          <span class="range-value" id="scrollIntervalMsValue">50</span>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label for="checkIntervalMs">
+          Check Interval (milliseconds)
+          <div class="label-description">How often to check for next button and videos</div>
+        </label>
+        <div>
+          <input type="number" id="checkIntervalMs" min="100" max="5000" value="1000">
+          <span class="range-value" id="checkIntervalMsValue">1000</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Video Settings -->
+    <div class="section">
+      <div class="section-title">🎬 Video Settings</div>
+
+      <div class="control-group">
+        <label>Video Skip Methods</label>
+        <div class="checkbox-group">
+          <div class="checkbox-item">
+            <input type="checkbox" id="methodSeek" checked>
+            <label for="methodSeek" class="checkbox-label">
+              Skip to End (seeks video to duration)
+            </label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="methodSpeed" checked>
+            <label for="methodSpeed" class="checkbox-label">
+              Speed Up (plays video at high speed while muted)
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label for="videoPlaybackRate">
+          Video Playback Rate
+          <div class="label-description">Speed multiplier (2x, 4x, 8x, 16x)</div>
+        </label>
+        <select id="videoPlaybackRate">
+          <option value="2">2x Speed</option>
+          <option value="4">4x Speed</option>
+          <option value="8">8x Speed</option>
+          <option value="16" selected>16x Speed (Default)</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Next Button Settings -->
+    <div class="section">
+      <div class="section-title">➡️ Next Button Settings</div>
+
+      <div class="control-group">
+        <label for="customNextSelector">
+          Custom Next Button Selector (CSS)
+          <div class="label-description">Leave blank to use default selectors</div>
+        </label>
+        <input 
+          type="text" 
+          id="customNextSelector" 
+          placeholder="e.g., .pagination .next, [data-action='next']"
+        >
+        <div class="info-box">
+          💡 <strong>Examples:</strong><br>
+          Class: <code>.pagination a.next</code><br>
+          Attribute: <code>[data-id='next']</code><br>
+          Text: Leave empty to search by default labels
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label>
+          <input type="checkbox" id="autoStart">
+          Auto-start on page load (optional)
+        </label>
+      </div>
+    </div>
+
+    <!-- Default Selectors Info -->
+    <div class="section">
+      <div class="section-title">📋 Default Next Button Selectors</div>
+      <div class="info-box">
+        The extension searches for next buttons using these patterns (in order):<br><br>
+        • aria-label attributes containing "next"<br>
+        • Element text containing "Next", "next", ">", "Load More"<br>
+        • Class names containing "next"<br>
+        • href attributes with pagination parameters<br>
+        • data-testid attributes<br><br>
+        If none are found, the automation stops.
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="button-group">
+      <button class="btn-save" id="saveBtn">Save Settings</button>
+      <button class="btn-reset" id="resetBtn">Reset to Defaults</button>
+    </div>
+
+    <div class="status-message" id="statusMessage"></div>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

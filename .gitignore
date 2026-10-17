@@ -1,0 +1,22 @@
+# Dependencies and generated output
+**/node_modules/
+**/.venv/
+**/venv/
+**/__pycache__/
+**/dist/
+**/build/
+**/.next/
+**/coverage/
+
+# Local secrets and machine-specific files
+**/.env
+**/.env.*
+!.env.example
+**/*.pem
+**/*.key
+**/credentials.json
+
+# OS and editor metadata
+.DS_Store
+Thumbs.db
+*.log
