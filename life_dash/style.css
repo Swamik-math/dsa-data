@@ -1,0 +1,564 @@
+/* ========== Base Styles ========== */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 20px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #678efc, #010203);
+  background-attachment: fixed;
+  color: #222;
+  transition: background 0.3s, color 0.3s;
+}
+
+body.dark {
+  background-color: #1e1e1e;
+  color: #f5f5f5;
+}
+
+/* ========== App Container ========== */
+.app-container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* ========== Tool Grid ========== */
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* ========== Tool Card ========== */
+.tool-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 20px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+  color: #ffffff;
+  transition: 0.3s ease;
+}
+
+.tool-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 20px 4px rgba(104, 179, 255, 0.6);
+  background: linear-gradient(135deg, #e0f7ff, #ffffff);
+  color: black;
+}
+
+body.dark .tool-card {
+  background-color: #2a2a2a;
+  color: #ffffff;
+}
+
+body.dark .tool-card :hover {
+  
+  color: #000000;
+}
+
+.tool-card input,
+.tool-card button {
+  padding: 0.5rem;
+  margin: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+}
+
+/* ========== Theme Toggle Button ========== */
+#themeToggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+/* ========== Sticky Notes ========== */
+#notesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.sticky-note {
+  background-color: #fffbc1;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  width: 200px;
+  min-height: 150px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  cursor: grab;
+  transition: transform 0.2s;
+}
+
+.sticky-note textarea {
+  width: 100%;
+  height: 100px;
+  border: none;
+  resize: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 1rem;
+  color: #333;
+  outline: none;
+}
+
+.sticky-note button {
+  background: #ff4d4d;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+body.dark .sticky-note {
+  background-color: #333c29;
+  color: #fff;
+}
+
+body.dark .sticky-note textarea {
+  color: #fff;
+}
+
+/* ========== Daily Goals Tracker ========== */
+#goalList {
+  list-style: none;
+  padding-left: 0;
+  text-align: left;
+}
+
+#goalList li {
+  margin: 0.5rem 0;
+  background-color: #d8f9d3;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+#goalList li.completed {
+  text-decoration: line-through;
+  background-color: #b6e6a9;
+}
+
+body.dark #goalList li {
+  background-color: #3b523a;
+}
+
+body.dark #goalList li.completed {
+  background-color: #4d664b;
+}
+
+/* ========== Reminders ========== */
+#reminderList {
+  list-style: none;
+  padding-left: 0;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+#reminderList li {
+  background-color: #fff4d6;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  border-radius: 0.5rem;
+}
+
+body.dark #reminderList li {
+  background-color: #4d3d29;
+  color: #fff;
+}
+
+/* ========== Focus Timer ========== */
+#breathingCircle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #a1c4fd;
+  margin: 1rem auto;
+  animation: breathe 8s infinite ease-in-out;
+  display: none;
+}
+
+@keyframes breathe {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.5); }
+  100% { transform: scale(1); }
+}
+
+.focus-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+#focusTimeLeft {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  color: #444;
+}
+
+body.dark #focusTimeLeft {
+  color: #ddd;
+}
+
+/* ========== Calculator Modal ========== */
+.popup-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #027cff;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 0.8rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1001;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(3px);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background: white;
+  padding: 1rem;
+  border-radius: 1rem;
+  width: 300px;
+  margin: 10% auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h3 {
+  margin-top: 0;
+  text-align: center;
+}
+
+.close {
+  float: right;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+#calcDisplay {
+  width: 90%;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+  text-align: right;
+}
+
+.calc-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+.calc-buttons button {
+  padding: 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.calc-buttons button:hover {
+  background-color: #ddd;
+}
+
+.calc-buttons .clear {
+  grid-column: span 4;
+  background-color: #e74c3c;
+  color: white;
+}
+
+/* ========== Home Button ========== */
+.back-home-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 45px;
+  height: 45px;
+  background-color: #6a0dad;
+  color: white;
+  text-align: center;
+  line-height: 45px;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: background 0.3s ease;
+  z-index: 1000;
+}
+
+.back-home-btn:hover {
+  background-color: #4b078a;
+}
+
+/* ========== Music Button ========== */
+.music-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 170px;
+  width: 50px;
+  height: 50px;
+  border: none;
+  background-color: #ad0d5d;
+  color: white;
+  font-size: 20px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  z-index: 999;
+  transition: background-color 0.3s ease;
+}
+
+.music-btn:hover {
+  background-color: #9a0027;
+}
+
+/* ========== File Converter ========== */
+#fileConverterCard,
+#websiteBlockerCard {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 20px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+  color: #ffffff;
+  transition: 0.3s ease;
+  text-align: center;
+  max-width: 300px;
+}
+
+#fileConverterCard:hover,
+#websiteBlockerCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 20px 4px rgba(104, 179, 255, 0.6);
+  background: linear-gradient(135deg, #e0f7ff, #ffffff);
+  color: black;
+}
+
+body.dark #fileConverterCard,
+body.dark #websiteBlockerCard {
+  background-color: #2a2a2a;
+  color: #f5f5f5;
+}
+
+/* File Converter Specific Elements */
+#fileConverterCard input[type="file"] {
+  margin-top: 10px;
+}
+
+#previewContainer {
+  margin: 110px 0;
+}
+#imageInput{
+  width: 200px;
+}
+
+#imagePreview {
+  max-width: 100%;
+  max-height: 150px;
+  border-radius: 10px;
+  display: none;
+  margin-top: 10px;
+}
+
+#convertBtn {
+  padding: 10px 20px;
+  margin-top: 10px;
+  background-color: #6a5acd;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#convertBtn:hover {
+  background-color: #483d8b;
+}
+
+/* Website Blocker Specific Elements */
+#websiteBlockerCard input[type="text"],
+#websiteBlockerCard input[type="number"] {
+  width: 80%;
+  padding: 8px;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+#websiteBlockerCard button {
+  padding: 8px 14px;
+  background-color: #ff5c5c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  margin-top: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#websiteBlockerCard button:hover {
+  background-color: #d43f3f;
+}
+
+#blockList {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+#blockList li {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+/* news card---------------- */
+#nerwsContaine {
+  text-align: left;
+  margin-top: 1rem;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+
+/* Default link style inside news card */
+#newsContainer a {
+  display: block;
+  margin-bottom: 0.8rem;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+/* On hover of the news card, change text to black */
+.tool-card:hover #newsContainer a {
+  color: #000000;
+}
+
+
+
+/* background ikmage--------------------------- */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1470&q=80'); /* You can change this to your preferred image */
+  background-size: cover;
+  background-position: center;
+  filter: blur(12px);
+  z-index: -1;
+  opacity: 0.7;
+}
+
+/* Dark mode blurry background */
+body.dark::before {
+  background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80');
+  filter: blur(10px) brightness(0.5);
+  opacity: 0.75;
+}
+
+
+/*  */
+/* youtube card--------------------- */
+/* ========== YouTube Video Player ========== */
+/* Floating video modal */
+.video-modal {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+
+.video-modal-content {
+  position: relative;
+  background: #111;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  width: 380px;
+  height: auto;
+}
+
+.video-close {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: #ff4d4d;
+  color: white;
+  border-radius: 50%;
+  padding: 4px 10px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#playVideoBtn{
+  background-color: #6a5acd;
+  border: 0;
+  border-radius: 20%;
+}
+#playVideoBtn:hover{
+  background-color: #5542cb;
+}
+
+/* gif player---------- */
+.corner-sticker {
+  position: fixed;
+  top: 80px; /* slightly below the Home button */
+  left: 10px;
+  width: 150px;
+  height: auto;
+  z-index: 999;
+  animation: floaty 3s ease-in-out infinite;
+  pointer-events: none; /* allows clicks to pass through */
+}
+
+@keyframes floaty {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "nodejs-backend-learning",
+  "version": "1.0.0",
+  "description": "A structured learning repository for Node.js backend development from basics to REST APIs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"No tests configured yet\" && exit 0"
+  },
+  "keywords": ["nodejs", "backend", "learning", "express", "rest-api"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

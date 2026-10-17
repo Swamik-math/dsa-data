@@ -1,0 +1,13 @@
+> node package manager
+
+initialize the project
+> as node npm
+
+express -> is the web frame work availabe
+
+> npm install --save-dev nodemon 
+  |-> to do the real time update
+
+the address of the server connected to the network is : http://localhost:8080
+
+> inspect in the browser and then direct to the network -> all those in the client side

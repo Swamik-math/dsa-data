@@ -1,0 +1,440 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Animations from original project */
+@keyframes zoomIn {
+  from { transform: scale(1); }
+  to { transform: scale(1.1); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.zoom-effect {
+  animation: zoomIn 10s infinite alternate;
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-out;
+}
+
+.slide-up {
+  animation: slideUp 0.8s ease-out;
+}
+
+/* Add these animations if not already present */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* ===== ANIMATIONS FOR CAREERS PAGE ===== */
+
+/* Job card hover animation */
+@keyframes jobHover {
+  0% {
+    transform: translateY(0);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  }
+  100% {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(59, 130, 246, 0.15);
+    border-color: rgba(59, 130, 246, 0.3);
+  }
+}
+
+/* Pulse animation for urgent badges */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+/* Floating animation for featured section */
+@keyframes floatUp {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Button press effect */
+@keyframes buttonPress {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.98);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Search input focus glow */
+@keyframes searchGlow {
+  0%, 100% {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  }
+  50% {
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.15);
+  }
+}
+
+/* Category filter animation */
+@keyframes categorySelect {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+
+/* Stats counter animation */
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Gradient background animation */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Tag hover animation */
+@keyframes tagHover {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1.02);
+  }
+}
+
+/* Arrow slide animation */
+@keyframes arrowSlide {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Apply animations to specific elements */
+.featured-banner {
+  animation: floatUp 3s ease-in-out infinite;
+}
+
+.urgent-badge {
+  animation: pulse 1.5s infinite;
+}
+
+.stats-item {
+  animation: countUp 0.6s ease-out forwards;
+}
+
+/* Button active state */
+button:active {
+  animation: buttonPress 0.2s ease;
+}
+
+/* Search input animation */
+input[type="text"]:focus {
+  animation: searchGlow 2s infinite;
+}
+
+/* Category button selection */
+.category-selected {
+  animation: categorySelect 0.3s ease forwards;
+}
+
+/* Apply gradient animation to CTA */
+.cta-gradient {
+  background-size: 200% 200%;
+  animation: gradientShift 5s ease infinite;
+}
+
+/* ===== ENHANCED HOMEPAGE ANIMATIONS ===== */
+
+/* Particle floating animation */
+@keyframes particleFloat {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translate(10px, -10px) scale(1.2);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate(20px, 0) scale(1);
+    opacity: 0.3;
+  }
+  75% {
+    transform: translate(10px, 10px) scale(0.8);
+    opacity: 0.6;
+  }
+}
+
+/* Girl image glow effect */
+@keyframes girlGlow {
+  0%, 100% {
+    filter: 
+      drop-shadow(0 20px 40px rgba(0,0,0,0.6))
+      drop-shadow(0 0 30px rgba(59, 130, 246, 0.4));
+  }
+  50% {
+    filter: 
+      drop-shadow(0 20px 40px rgba(0,0,0,0.8))
+      drop-shadow(0 0 40px rgba(59, 130, 246, 0.6))
+      drop-shadow(0 0 60px rgba(139, 92, 246, 0.3));
+  }
+}
+
+/* Thumbnail floating animation */
+@keyframes thumbnailFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-15px) rotate(2deg);
+  }
+  50% {
+    transform: translateY(0) rotate(0deg);
+  }
+  75% {
+    transform: translateY(10px) rotate(-2deg);
+  }
+}
+
+/* Gradient background shift */
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Title glow effect */
+@keyframes titleGlow {
+  0%, 100% {
+    background-position: 0% 50%;
+    text-shadow: 
+      0 2px 10px rgba(0,0,0,0.5),
+      0 0 30px rgba(59, 130, 246, 0.5);
+  }
+  50% {
+    background-position: 100% 50%;
+    text-shadow: 
+      0 2px 15px rgba(0,0,0,0.6),
+      0 0 40px rgba(59, 130, 246, 0.7),
+      0 0 60px rgba(139, 92, 246, 0.4);
+  }
+}
+
+/* Text pulse for highlights */
+@keyframes textPulse {
+  0%, 100% {
+    color: #60a5fa;
+    transform: scale(1);
+  }
+  50% {
+    color: #93c5fd;
+    transform: scale(1.05);
+  }
+}
+
+/* Button shimmer effect */
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Enhanced bounce for scroll indicator */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.1);
+  }
+}
+
+/* Fade in-out for scroll text */
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Image entrance animation */
+@keyframes imageEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Card hover lift effect */
+@keyframes cardLift {
+  to {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+  }
+}
+
+/* Spin animation for loading */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Wave animation */
+@keyframes wave {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Apply animations */
+.particle {
+  animation: particleFloat 4s ease-in-out infinite;
+}
+
+.girl-image {
+  animation: girlGlow 3s ease-in-out infinite;
+}
+
+.thumbnail-item {
+  animation: thumbnailFloat 5s ease-in-out infinite;
+}
+
+.gradient-bg {
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease infinite;
+}
+
+.hero-title {
+  background-size: 200% 100%;
+  animation: titleGlow 2s ease-in-out infinite;
+}
+
+.highlight-text {
+  animation: textPulse 2s infinite;
+}
+
+.shimmer-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  animation: shimmer 2s infinite;
+}
+
+/* Smooth transitions */
+* {
+  transition-timing-function: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+/* Performance optimizations */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .girl-image {
+    filter: brightness(1.1) contrast(1.1);
+  }
+}

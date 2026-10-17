@@ -1,0 +1,217 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  body {
+    background: linear-gradient(135deg, #2f0a61, #5e1eb9);
+    color: white;
+    overflow-x: hidden;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: transparent;
+  }
+
+  .logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+
+  nav a {
+    color: white;
+    margin: 0 1rem;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .contact-btn {
+    background: white;
+    color: #5e1eb9;
+    border: none;
+    padding: 0.6rem 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+
+  .landing {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4rem 2rem;
+    min-height: 90vh;
+  }
+
+  .text-section {
+    max-width: 50%;
+  }
+
+  .kannada-title {
+    font-size: 4rem;
+    font-weight: 700;
+  }
+
+  .sub-text {
+    font-size: 1.5rem;
+    color: #ccc;
+    margin-top: 0.5rem;
+  }
+
+  .desc {
+    margin: 2rem 0;
+    font-size: 1rem;
+    color: #ddd;
+  }
+
+  .learn-btn {
+    display: inline-block;
+    padding: 0.8rem 1.6rem;
+    background: #fff;
+    color: #5e1eb9;
+    border-radius: 30px;
+    font-weight: 600;
+    text-decoration: none;
+    margin-bottom: 2rem;
+  }
+
+  .socials a {
+    margin-right: 1rem;
+    color: #fff;
+    font-size: 1.2rem;
+  }
+
+  .blob-section {
+    width: 40%;
+    background: radial-gradient(circle at center, #7e3df9 0%, #3e0d83 100%);
+    border-radius: 50% 30% 40% 70% / 60% 30% 70% 40%;
+    height: 500px;
+    position: relative;
+    box-shadow: inset 0 0 20px #b18aff;
+  }
+
+  @media screen and (max-width: 768px) {
+    .landing {
+      flex-direction: column;
+      text-align: center;
+    }
+    .text-section, .blob-section {
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+
+  /* About--------------- */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: rgba(0,0,0,0.7);
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    color: #333;
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 20px;
+    width: 60%;
+    font-family: 'Segoe UI', sans-serif;
+    position: relative;
+  }
+  
+  .close-btn {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #888;
+    cursor: pointer;
+  }
+  
+  .close-btn:hover {
+    color: #000;
+  }
+  
+
+  /* Gallery--------- */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .gallery-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+  }
+  
+  .gallery-grid img:hover {
+    transform: scale(1.05);
+  }
+  
+  /* logo------------- */
+  .logo-img {
+    height: 40px;
+    width: auto;
+    vertical-align: middle;
+    border-radius: 70px;
+
+  }
+  
+
+  /* Get satrted------------- */
+  .start-btn-container {
+    margin-top: 30px;
+    text-align: center;
+  }
+  
+  .start-btn {
+    background: #6a0dad;
+    color: #fff;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: background 0.3s ease;
+  }
+  
+  .start-btn:hover {
+    background: #4b078a;
+  }
+  
+
+  /* -------------------- */
+  .bottom-right-text {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    font-size: 0.75rem;
+    color: #ccc;
+    opacity: 0.8;
+    z-index: 999;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  body.dark .bottom-right-text {
+    color: #888;
+  }
+  

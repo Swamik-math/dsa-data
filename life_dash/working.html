@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DailyFix Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <a href="index.html" class="back-home-btn" title="Back to Home">
+    🏠
+  </a>
+  
+
+  <div class="app-container">
+    <button id="themeToggle">🌙 Dark Mode</button>
+    <h1>📅 DailyFix Dashboard</h1>
+    <p>Your all-in-one daily productivity toolbox</p>
+
+    <div class="tool-grid">
+      <!-- To-Do List -->
+      <div class="tool-card">
+        <h3>📝 To-Do List</h3>
+        <input type="text" id="taskInput" placeholder="Enter a task..."/>
+        <button onclick="addTask()">Add Task</button>
+        <ul id="taskList"></ul>
+      </div>
+
+      <!-- Pomodoro Timer -->
+      <div class="tool-card">
+        <h3>⏱️ Pomodoro Timer</h3>
+        <span id="timer">25:00</span>
+        <div>
+          <button onclick="startPomodoro()">Start</button>
+          <button onclick="resetPomodoro()">Reset</button>
+        </div>
+      </div>
+
+      <!-- Sticky Notes -->
+      <div class="tool-card">
+        <h3>📌 Sticky Notes</h3>
+        <button onclick="addStickyNote()">➕ Add Note</button>
+        <div id="notesContainer"></div>
+      </div>
+
+      <!-- Daily Goals Tracker -->
+      <div class="tool-card">
+        <h3>🏆 Daily Goals</h3>
+        <input type="text" id="goalInput" placeholder="Add a goal..." />
+        <button onclick="addGoal()">Add Goal</button>
+        <ul id="goalList"></ul>
+      </div>
+
+      <!-- Reminders -->
+      <div class="tool-card">
+        <h3>🔔 Set a Reminder</h3>
+        <input type="text" id="reminderText" placeholder="Reminder note..." />
+        <input type="time" id="reminderTime" />
+        <button onclick="addReminder()">Set Reminder</button>
+        <ul id="reminderList"></ul>
+      </div>
+
+      <!-- Focus Timer -->
+<div class="tool-card">
+  <h3>🧘 Focus Breathing</h3>
+  <div class="focus-controls">
+    <select id="focusMode">
+      <option value="loop">Loop Mode</option>
+      <option value="timed">Timed Mode</option>
+    </select>
+    <select id="focusDuration" style="display: none;">
+      <option value="5">5 minutes</option>
+      <option value="10">10 minutes</option>
+      <option value="15">15 minutes</option>
+    </select>
+    <button onclick="startFocus()">Start</button>
+    <button onclick="stopFocus()">Stop</button>
+    <p id="focusTimeLeft"></p>
+  </div>
+  <div id="breathingCircle"></div>
+</div>
+
+<!-- Calculator Popup Button -->
+<button id="calculatorBtn" class="popup-btn">🧮 Calculator</button>
+
+<!-- music player ---- -->
+
+
+
+<!-- Music Play Button -->
+<button id="musicBtn" class="music-btn" title="Play Music">
+  🎵
+</button>
+
+<!-- Hidden Audio Player -->
+<audio id="backgroundMusic" loop>
+  <source src="lofiSong\02.mp3" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
+
+
+<!-- Calculator Modal -->
+<div id="calculatorModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeCalculator()">&times;</span>
+    <h3>Bro-Again</h3>
+    <input type="text" id="calcDisplay" readonly>
+    <div class="calc-buttons">
+      <button onclick="press('7')">7</button>
+      <button onclick="press('8')">8</button>
+      <button onclick="press('9')">9</button>
+      <button onclick="press('/')">÷</button>
+
+      <button onclick="press('4')">4</button>
+      <button onclick="press('5')">5</button>
+      <button onclick="press('6')">6</button>
+      <button onclick="press('*')">×</button>
+
+      <button onclick="press('1')">1</button>
+      <button onclick="press('2')">2</button>
+      <button onclick="press('3')">3</button>
+      <button onclick="press('-')">−</button>
+
+      <button onclick="press('0')">0</button>
+      <button onclick="press('.')">.</button>
+      <button onclick="calculate()">=</button>
+      <button onclick="press('+')">+</button>
+
+      <button onclick="clearDisplay()" class="clear">C</button>
+    </div>
+  </div>
+</div>
+
+<!-- jpg to png converter -->
+<div class="tool-card" id="fileConverterCard">
+  <h2>📁 File Converter</h2>
+  <input type="file" id="imageInput" accept="image/png, image/jpeg" />
+  <div id="previewContainer">
+    <img id="imagePreview" alt="Preview will appear here" />
+  </div>
+  <button id="convertBtn">Convert & Download</button>
+</div>
+
+<!-- website blocker------------- -->
+<div class="tool-card" id="websiteBlockerCard">
+  <h2>🚫 Website Blocker</h2>
+  <input type="text" id="siteInput" placeholder="Enter site (e.g., youtube.com)" />
+  <button onclick="addSite()">Add</button>
+
+  <ul id="blockList"></ul>
+
+  <label for="focusTime">Focus Duration (mins):</label>
+  <input type="number" id="focusTime" min="1" value="25" />
+
+  <button onclick="startBlocking()">Start Focus Mode</button>
+  <div id="blockCountdown" style="margin-top:10px;"></div>
+</div>
+
+
+<!-- news card---------------- -->
+<div class="tool-card" id="newsCard">
+  <h3>📰 Trending News</h3>
+  <div id="newsContainer">
+    <p>Loading latest news...</p>
+  </div>
+  <button onclick="fetchNews()">🔄 Refresh</button>
+</div>
+
+
+<!-- youtube video player----------- -->
+<!-- YouTube Player Tool Card -->
+<div class="tool-card">
+  <h3>YouTube Player</h3>
+  <input type="text" id="youtubeLink" placeholder="Paste YouTube link" />
+  <button id="playVideoBtn">Play</button>
+</div>
+
+<!-- Floating YouTube Player -->
+<div id="videoPopup" class="video-modal">
+  <div class="video-modal-content">
+    <span id="closeVideoBtn" class="video-close">&times;</span>
+    <iframe
+      id="videoFrame"
+      width="100%"
+      height="200"
+      frameborder="0"
+      allowfullscreen
+      allow="autoplay; encrypted-media"
+    ></iframe>
+  </div>
+</div>
+
+<!-- gif player--------- -->
+
+<img src="Gallery\anime01.gif" class="corner-sticker" alt="sticker" />
+
+
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+# immulates the process of sending the reqest
+
+### TEST GET / WEBSITE
+GET http://localhost:8080
+
+### TEST GET / DASHBORD
+
+GET http://localhost:8080/dashbord
+
+
+### data endpoints
+GET http://localhost:8080/api/data
+
+### data endpoint for adding a user
+POST http://localhost:8080/api/data
+Content-Type: application/json 
+
+{
+    "name" : "gilgamesh"
+}
+
+
+### delete end point
+DELETE http://localhost:8080/api/data

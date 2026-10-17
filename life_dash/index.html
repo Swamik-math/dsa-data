@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Suswagatham | LifeDash</title>
+  <link rel="stylesheet" href="Home-styles.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="navbar">
+
+    <div class="logo">
+        <img src="logo.jpg" alt="LifeDash Logo" class="logo-img">
+        <span style="margin-left: 10px; font-weight: 700; font-size: 1.4rem;">LifeDash</span>
+      </div>
+      
+      
+    <nav>
+      <a href="#">Home</a>
+      <a href="#" onclick="openAbout()">About</a>
+      <a href="#" onclick="openGallery()">Gallery</a>
+      <!-- 🟪 Empty Slot: Add more nav links -->
+      <button class="contact-btn">Contact</button>
+    </nav>
+  </header>
+
+  <main class="landing">
+    <div class="text-section">
+      <h1 class="kannada-title">Make your work flow smoothly</h1>
+      <br>
+      <p class="sub-text">Welcome to LifeDash</p>
+
+      <!-- Get started button -->
+      <div class="start-btn-container">
+        <a href="working.html" class="start-btn">Get Started</a>
+      </div>
+      
+
+      <p class="desc">Your personal productivity dashboard with tools that simplify your life.</p>
+
+      <!-- 🟪 Empty Slot: Add short description or slogan -->
+
+      <a href="dashboard.html" class="learn-btn">Launch Dashboard</a>
+      <div class="socials">
+        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <!-- 🟪 Empty Slot: Add more social icons -->
+      </div>
+    </div>
+
+    <div class="blob-section">
+      <!-- 🟪 Empty Slot: Insert decorative SVG or Lottie animation -->
+    </div>
+  </main>
+<!-- About -->
+  <div id="aboutModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeAbout()">&times;</span>
+      <h2>About LifeDash</h2>
+      <p>LifeDash is your personal productivity dashboard packed with tools like sticky notes, calculators, timers, and more – all in one elegant interface.</p>
+      <p>Designed to help you focus, stay organized, and enjoy your digital workspace!</p>
+    </div>
+  </div>
+
+<!-- Gallery -->
+  <div id="galleryModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeGallery()">&times;</span>
+      <h2>Gallery</h2>
+
+      <div class="gallery-grid">
+        <img src="Gallery\01.jpg" alt="Tool 1">
+        <img src="Gallery\02.jpg" alt="Tool 2">
+        <img src="Gallery\03.jpg" alt="Tool 3">
+        <img src="Gallery\04.jpg" alt="Tool 4">
+        <img src="Gallery\05.jpg" alt="Tool 4">
+        <img src="Gallery\06.jpg" alt="Tool 4">
+        <img src="Gallery\07.jpg" alt="Tool 4">
+        <img src="Gallery\08.jpg" alt="Tool 4">
+        <img src="Gallery\09.jpg" alt="Tool 4">
+        <img src="Gallery\10.jpg" alt="Tool 4">
+        <img src="Gallery\11.jpg" alt="Tool 4">
+        <img src="Gallery\12.jpg" alt="Tool 4">
+        <img src="Gallery\13.jpg" alt="Tool 4">
+        <img src="Gallery\14.jpg" alt="Tool 4">
+        <img src="Gallery\15.jpg" alt="Tool 4">
+        <img src="Gallery\16.jpg" alt="Tool 4">
+        <img src="Gallery\17.jpg" alt="Tool 4">
+        <img src="Gallery\18.jpg" alt="Tool 4">
+        <img src="Gallery\20.jpg" alt="Tool 4">
+        <img src="Gallery\21.jpg" alt="Tool 4">
+        <img src="Gallery\22.jpg" alt="Tool 4">
+        <img src="Gallery\23.jpg" alt="Tool 4">
+        <img src="Gallery\24.jpg" alt="Tool 4">
+        <!-- 🟪 Add more images as needed -->
+      </div>
+      
+    </div>
+  </div>
+
+  <div class="bottom-right-text">
+    ◎ Supreet_K
+  </div>
+  
+  
+
+  <script src="work.js" crossorigin="anonymous"></script>
+</body>
+</html>

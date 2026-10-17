@@ -1,0 +1,11 @@
+{
+  "pages": [
+    {
+      "id": "root",
+      "title": "Welcome",
+      "blocks": [
+        { "id": "b1", "type": "text", "content": "This is a starter page. Create pages and add blocks." }
+      ]
+    }
+  ]
+}
